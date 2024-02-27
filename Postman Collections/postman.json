@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "8125e4b7-ab6c-48c1-ad84-6d88f9015c99",
+		"name": "AssertionTask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24c51a33-ae23-4af9-a08b-abf5665537fb",
+						"exec": [
+							"//Asserting that status code is 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Asserting that name is meelad\r",
+							"pm.test(\"test that name equals meelad\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"meelad\");\r",
+							"});\r",
+							"\r",
+							"//Asserting that count is 21\r",
+							"pm.test(\"test that count equals 21\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.eql(21);\r",
+							"});\r",
+							"\r",
+							"//Asserting that age is 34\r",
+							"pm.test(\"test that age equals 34\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.age).to.eql(34);\r",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "db435f40-eb16-4933-abb1-4c3c6f2f5081",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.agify.io/?name=meelad",
+					"protocol": "https",
+					"host": [
+						"api",
+						"agify",
+						"io"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "meelad"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
